@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>form employee</title>
+</head>
+<body>
+<form action="#" th:action="@{/saveUpdateEmploye}" th:object="${employee}" method="post">
+    <input type="hidden" th:field="${employee.employeID}" placeholder="name">>
+    <input type="text" th:field="${employee.name}" placeholder="name">
+    <input type="text" th:field="${employee.gender}" placeholder="gender">
+    <input type="email" th:field="${employee.email}" placeholder="addres">
+    <input type="text" th:field="${employee.addres}" placeholder="email">
+
+    <button type="submit">save</button>
+</form>
+</body>
+</html>

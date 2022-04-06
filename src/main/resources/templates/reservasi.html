@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Index - hotel</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link rel="stylesheet" href="/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/flag-icon.min.css">
+    <link rel="stylesheet" href="/owl.theme.default.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="/owl.carousel.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</head>
+<body style="">
+<div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+            <a class="sidebar-brand brand-logo" href="index.html"><img src="img/motel.png" alt="logo"></a>
+            <!--            <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"></a>-->
+        </div>
+        <ul class="nav">
+            <li class="nav-item profile">
+
+            </li>
+            <li class="nav-item nav-category">
+                <span class="nav-link">Navigation</span>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="index.html">
+              <span class="menu-icon">
+                  <span class="material-icons-outlined">dashboard_customize</span>
+              </span>
+                    <span class="menu-title"> Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="index.html">
+              <span class="menu-icon">
+                  <span class="material-icons-outlined">how_to_reg</span>
+              </span>
+                    <span class="menu-title"> tamu </span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon"><span class="material-icons-outlined">shopping_cart_checkout</span>
+              </span>
+                    <span class="menu-title">Recerpationt</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="pages/tables/basic-table.html">
+              <span class="menu-icon">
+                <span class="material-icons-outlined">checklist</span>
+              </span>
+                    <span class="menu-title">Checkin</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon">
+                <span class="material-icons-outlined">receipt_long</span>
+              </span>
+                    <span class="menu-title">Checkout</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="pages/icons/mdi.html">
+              <span class="menu-icon">
+                <span class="material-icons-outlined">bedroom_parent</span>
+              </span>
+                    <span class="menu-title">Room </span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+               <span class="material-icons-outlined">badge</span>
+              </span>
+                    <span class="menu-title">Employee</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+               <span class="material-icons-outlined">supervised_user_circle</span>
+              </span>
+                    <span class="menu-title">Acount</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link"
+                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+              <span class="menu-icon">
+                <span class="material-icons-outlined">picture_as_pdf</span>
+              </span>
+                    <span class="menu-title">Documentation</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+            <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo-mini" href="index.html">G</a>
+            </div>
+            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="material-icons-outlined">menu</span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-primary" type="button">Log Out</button>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                    <span class="material-icons-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">FORM RESEPTION</h4>
+                            <form class="forms-sample">
+                                <div class="form-group">
+                                    <label for="code">Code Reservasi</label>
+                                    <input type="text" class="form-control" id="code" placeholder="Code..">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Name</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleSelectGender">Gender</label>
+                                    <select class="form-control" id="exampleSelectGender">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail3">Tanggal Order</label>
+                                    <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword4">Tanggal Checkin</label>
+                                    <input type="date" class="form-control" id="exampleInputPassword4"
+                                           placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="out">Tanggal Checkout</label>
+                                    <input type="date" class="form-control" id="out" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formFileMultiple" class="form-label">File upload</label>
+                                    <div class="mb-3">
+                                        <input class="form-control" type="file" id="formFileMultiple" multiple >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleTextarea1">Catatan</label>
+                                    <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                                </div>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-primary me-md-2" type="button">save</button>
+                                    <button class="btn btn-danger" type="button">cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!--Java Script-->
+<script src="js/dashboard.js"></script>
+<script src="js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="js/Chart.min.js"></script>
+<script src="js/progressbar.min.js"></script>
+<script src="js/jquery-jvectormap.min.js"></script>
+<script src="js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/misc.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+</body>
+</html>
