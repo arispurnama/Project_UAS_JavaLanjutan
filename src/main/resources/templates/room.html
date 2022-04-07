@@ -166,6 +166,7 @@
                                             <th> Nomor Room</th>
                                             <th> Jenis</th>
                                             <th> Type Room Id</th>
+                                            <th> Price</th>
                                             <th> Status</th>
                                         </tr>
                                         </thead>
@@ -173,7 +174,8 @@
                                         <tr th:each="rooms : ${room}">
                                             <td th:text="${rooms.nomorRoom}"></td>
                                             <td th:text="${rooms.jenis}"></td>
-                                            <td th:text="${rooms.typeID}"></td>
+                                            <td th:text="${rooms.typeID.typeID}"></td>
+                                            <td th:text="${rooms.typeID.harga}"></td>
                                             <td th:text="${rooms.status}"></td>
                                         </tr>
                                         </tbody>

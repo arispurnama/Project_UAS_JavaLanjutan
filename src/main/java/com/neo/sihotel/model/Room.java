@@ -20,8 +20,10 @@ public class Room {
     @Column(name = "status")
     private String status;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_id")
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "type_id")
+    @OneToOne(optional = false)
+    @JoinColumn(name = "type_id", referencedColumnName = "type_id")
     private TypeRoom typeID;
 
     @OneToOne(mappedBy = "nomorKamar")
