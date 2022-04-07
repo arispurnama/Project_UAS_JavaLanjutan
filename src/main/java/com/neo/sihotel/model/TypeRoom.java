@@ -1,14 +1,13 @@
 package com.neo.sihotel.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
 @Table(name = "type_room")
 public class TypeRoom {
@@ -25,10 +24,6 @@ public class TypeRoom {
 
     @Column(name = "kapasitas")
     private int kapasitas;
-
-
-    @Column(name = "jumlah")
-    private int jumlah;
 
     @Column(name = "photo")
     private String photo;

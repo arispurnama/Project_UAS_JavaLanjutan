@@ -1,5 +1,6 @@
 package com.neo.sihotel.service;
 
+import com.neo.sihotel.dto.SearchDto;
 import com.neo.sihotel.repository.EmployeRepository;
 import com.neo.sihotel.dto.EmployeDto;
 import com.neo.sihotel.model.Employee;
@@ -57,5 +58,10 @@ public class EmployeeServiceImple implements EmployeeService{
     public boolean deleteEmploye(int id) {
         employeRepository.deleteById(id);
         return true;
+    }
+
+    @Override
+    public List<Employee> getByKeyword(String keyword){
+        return employeRepository.findByKeyword(keyword);
     }
 }

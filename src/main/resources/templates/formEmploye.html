@@ -167,7 +167,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">employee form</h4>
-                            <form class="forms-sample" th:action="@{/saveEmployee}" th:object="${employee}"
+                            <form class="forms-sample" id="myInput" th:action="@{/saveEmployee}" th:object="${employee}"
                                   method="POST">
                                 <input type="hidden" th:field="*{employeID}">
                                 <div class="form-group">
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                    <button class="btn btn-danger mr-2" type="submit">Cancel</button>
+                                    <button class="btn btn-danger mr-2" onclick="document.getElementById('myInput').value = ''" type="submit">Cancel</button>
                                 </div>
                             </form>
                         </div>

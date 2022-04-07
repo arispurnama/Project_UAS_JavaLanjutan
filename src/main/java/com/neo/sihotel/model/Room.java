@@ -1,12 +1,10 @@
 package com.neo.sihotel.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,6 +16,9 @@ public class Room {
 
     @Column(name = "jenis")
     private String jenis;
+
+    @Column(name = "status")
+    private String status;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type_id")
