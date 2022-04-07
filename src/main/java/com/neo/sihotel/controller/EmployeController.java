@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-//@RequestMapping("/admin")
 public class EmployeController {
 
     private EmployeeService employeeService;
@@ -23,7 +22,7 @@ public class EmployeController {
     }
 
     //display liast of employee
-    @RequestMapping("/employee")
+    @GetMapping("/employee")
     public String getEmployee(Model model) throws Exception{
 
         model.addAttribute("employe", employeeService.getAllEmploye());
@@ -33,8 +32,7 @@ public class EmployeController {
     @GetMapping("/showNewEmployee")
     public String showNewEmploye(Model model){
         //create model attribut to bind form data
-        Employee employee = new Employee();
-        model.addAttribute("employee",employee);
+        model.addAttribute("employee", new Employee());
 
         return "formEmploye";
     }
@@ -63,7 +61,7 @@ public class EmployeController {
         //set employe as a model attribut to  pre-populate the form
         model.addAttribute("employee",employee);
 
-        return "updateEmploye";
+        return "formEmploye";
     }
     @GetMapping("/deleteEmploye/{id}")
     public String deleteEmploye(@PathVariable(value = "id") int id){

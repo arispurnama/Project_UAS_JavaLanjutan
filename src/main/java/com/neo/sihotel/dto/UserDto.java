@@ -21,4 +21,7 @@ public class UserDto {
     @NotNull
     private String email;
 
+    @NotNull
+    private Boolean admin;
+
 }

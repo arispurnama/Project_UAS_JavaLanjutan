@@ -1,4 +1,4 @@
-package com.neo.sihotel.controller.rest;
+package com.neo.sihotel.config;
 
 import com.neo.sihotel.repository.UserRepository;
 import com.neo.sihotel.service.UserService;
@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-//@Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -48,13 +48,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").authenticated()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/**").authenticated()
+                .antMatchers("/login").permitAll()
 
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
+                .defaultSuccessUrl("/dashboard")
                 .permitAll()
 
                 .and()
@@ -62,4 +63,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/js/**", "/images/**");
+    }
 }

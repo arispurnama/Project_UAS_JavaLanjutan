@@ -33,18 +33,16 @@
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="index.html"><img src="img/motel.png" alt="logo"></a>
-            <!--            <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"></a>-->
+            <a class="sidebar-brand brand-logo" href="index.html"><img src="/images/motel.png" alt="logo"></a>
         </div>
         <ul class="nav">
             <li class="nav-item profile">
-
             </li>
             <li class="nav-item nav-category">
                 <span class="nav-link">Navigation</span>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" th:href="@{/dashboard}">
               <span class="menu-icon">
                   <span class="material-icons-outlined">dashboard_customize</span>
               </span>
@@ -60,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" th:href="@{/reservasi}">
               <span class="menu-icon"><span class="material-icons-outlined">shopping_cart_checkout</span>
               </span>
                     <span class="menu-title">Recerpationt</span>
@@ -91,7 +89,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <a class="nav-link" th:href="@{/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -122,7 +120,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo-mini" href="index.html">G</a>
+                <a class="navbar-brand brand-logo-mini" th:href="@{/dashboard}">G</a>
             </div>
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -156,15 +154,15 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Inverse table</h4>
+                            <h4 class="card-title">Employee Data</h4>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">search</button>
+                                <input type="text" class="form-control" placeholder="Recipient's username"
+                                       aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">search
+                                </button>
                             </div>
-                            <p class="card-description"> Add class <code>.table-dark</code>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<!--                                <button class="btn btn-primary me-md-2" type="button">Button</button>-->
-                                <button class="btn btn-primary" type="button">add</button>
+                                <button class="btn btn-primary" type="button"><a th:href="@{/showNewEmployee}">Tambah</a></button>
                             </div>
                             </p>
                             <div class="table-responsive">
@@ -187,10 +185,10 @@
                                         <td th:text="${employee.addres}"></td>
                                         <td th:text="${employee.email}"></td>
                                         <td>
-                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button class="btn btn-primary me-md-2" type="button"><a style="text-decoration: none">EDIT</a></button>
-                                                <button class="btn btn-danger" type="button"><a style="text-decoration: none">DELETE</a></button>
-                                            </div>
+                                            <button class="btn btn-primary me-md-2" type="button"><a
+                                                    style="text-decoration: none" th:href="@{/updateEmploye/{id}(id=${employee.employeID})}">EDIT</a></button>
+                                            <button class="btn btn-danger" type="button"><a
+                                                    style="text-decoration: none" th:href="@{/deleteEmploye/{id}(id=${employee.employeID})}">DELETE</a></button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -211,22 +209,22 @@
         <!-- page-body-wrapper ends -->
     </div>
 </div>
-    <!--Java Script-->
-    <script src="js/dashboard.js"></script>
-    <script src="js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="js/Chart.min.js"></script>
-    <script src="js/progressbar.min.js"></script>
-    <script src="js/jquery-jvectormap.min.js"></script>
-    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="js/off-canvas.js"></script>
-    <script src="js/hoverable-collapse.js"></script>
-    <script src="js/misc.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/todolist.js"></script>
+<!--Java Script-->
+<script src="js/dashboard.js"></script>
+<script src="js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="js/Chart.min.js"></script>
+<script src="js/progressbar.min.js"></script>
+<script src="js/jquery-jvectormap.min.js"></script>
+<script src="js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/misc.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
 </body>
 </html>
