@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>room - hotel</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link rel="stylesheet" href="/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/flag-icon.min.css">
+    <link rel="stylesheet" href="/owl.theme.default.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="/owl.carousel.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: white;">
+<div>
+    <div>
+
+    </div>
+    <div class="row" style="  justify-content: center;">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">ROOM FORM</h4>
+                    <form class="forms-sample" th:action="@{/saveroom}" th:object="${room}" method="post">
+                        <input type="hidden" th:field="*{id}">
+                        <div class="form-group">
+                            <label for="exampleInputUsername1" class="labelFont">Nomor Room</label>
+                            <input type="text" class="form-control" id="exampleInputUsername1"
+                                   placeholder="Nomor Room" th:field="*{nomor}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="labelFont">Jenis</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                   placeholder="Jenis" th:field="*{jenis}">
+                        </div>
+                        <div class="form-group">
+                            <label for="pizza">Select ID Type Room </label>
+                            <select class="form-control selectpicker" th:field="*{type}" id="pizza">
+                                <option value="">Nothing selected</option>
+                                <option th:each="type : ${types}"
+                                        th:value="${type.id}"
+                                        th:text="${type.jenis}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword2" class="labelFont">Status</label>
+                            <input type="text" class="form-control" id="exampleInputPassword2"
+                                   placeholder="status" th:field="*{status}">
+                        </div>
+                        <button class="btn btn-primary mr-2">Simpan</button>
+                        <button class="btn btn-danger"><a th:href="@{/room}" style="text-decoration: none">Batal</a></button>
+<!--                        <button class="btn btn-danger mr-2" onclick="document.getElementById('myInput').value = ''" type="submit">Batal</button>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

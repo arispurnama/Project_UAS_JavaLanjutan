@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
 @Setter
 @Getter
+@Entity
 public class User implements UserDetails {
 
     @Id

@@ -1,11 +1,14 @@
 package com.neo.sihotel.repository;
 
-import com.neo.sihotel.model.TypeRoom;
-import org.springframework.data.repository.CrudRepository;
+import com.neo.sihotel.model.RoomType;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 
 @Repository
-public interface TypeRoomRepository extends CrudRepository<TypeRoom, Long> {
+public interface TypeRoomRepository extends JpaRepository<RoomType, Integer> {
+    @Query(value = "from RoomType ")
+    List<RoomType> getTypeRoom();
 }

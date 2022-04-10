@@ -10,10 +10,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-public class Reservasi {
-
+public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     private Integer code;
 
     private String nama;
@@ -40,15 +42,11 @@ public class Reservasi {
 
     private String email;
 
-//    @Column(name = "photo_ktp")
-//    private String photoKtp;
-
     private int tagihan;
 
     @Column(columnDefinition = "boolean default false")
     private boolean checkIn;
 
-    @ManyToOne
-    private Room room;
+    private String room;
 
 }

@@ -50,22 +50,14 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="index.html">
-              <span class="menu-icon">
-                  <span class="material-icons-outlined">how_to_reg</span>
-              </span>
-                    <span class="menu-title"> tamu </span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/reservasi}">
+                <a class="nav-link" th:href="@{/newreservasi}">
               <span class="menu-icon"><span class="material-icons-outlined">shopping_cart_checkout</span>
               </span>
                     <span class="menu-title">Recerpationt</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/tables/basic-table.html">
+                <a class="nav-link" th:href="@{/checkin}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">checklist</span>
               </span>
@@ -73,7 +65,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" th:href="@{/checkout}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">receipt_long</span>
               </span>
@@ -81,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" th:href="@{/room}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">bedroom_parent</span>
               </span>
@@ -97,7 +89,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <a class="nav-link" th:href="@{/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
@@ -130,7 +122,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-primary" type="button">Log Out</button>
+                                <form th:action="@{/appLogout}" method="POST">
+                                    <input type="submit" value="Logout" />
+                                </form>
                             </div>
                         </a>
                     </li>
@@ -179,24 +173,26 @@
                                         <th> Gender</th>
                                         <th> E-mail</th>
                                         <th> Addres</th>
+                                        <th> Jabatan</th>
                                         <th> Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="employee : ${employe}">
-                                        <td th:text="${employee.employeID}"></td>
+                                        <td th:text="${employee.id}"></td>
                                         <td th:text="${employee.name}"></td>
                                         <td th:text="${employee.gender}"></td>
-                                        <td th:text="${employee.addres}"></td>
                                         <td th:text="${employee.email}"></td>
+                                        <td th:text="${employee.address}"></td>
+                                        <td th:text="${employee.jabatan}"></td>
                                         <td>
                                             <button class="btn btn-primary me-md-2" type="button"><a
                                                     style="text-decoration: none;-webkit-text-fill-color: black"
-                                                    th:href="@{/updateEmploye/{id}(id=${employee.employeID})}"><span class="material-icons-outlined">edit_note</span></a>
+                                                    th:href="@{/updateEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">edit_note</span></a>
                                             </button>
                                             <button class="btn btn-danger" type="button"><a
                                                     style="text-decoration: none;-webkit-text-fill-color: black"
-                                                    th:href="@{/deleteEmploye/{id}(id=${employee.employeID})}"><span class="material-icons-outlined">delete_outline</span></a>
+                                                    th:href="@{/deleteEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">delete_outline</span></a>
                                             </button>
                                         </td>
                                     </tr>

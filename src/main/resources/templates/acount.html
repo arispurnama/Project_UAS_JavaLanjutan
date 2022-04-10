@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Index - hotel</title>
+    <title>Account - hotel</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <link rel="stylesheet" href="/materialdesignicons.min.css">
@@ -89,7 +89,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
@@ -123,7 +123,7 @@
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <form th:action="@{/appLogout}" method="POST">
-                                    <input type="submit" value="Logout" />
+                                    <input type="submit" value="Logout"/>
                                 </form>
                             </div>
                         </a>
@@ -145,119 +145,79 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-4 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>number of visitors</h5>
-                                <hr>
-                                <div class="row name">
-                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0" th:text="${visitors}"></h2>
-                                        </div>
-                                        <hr>
-                                        <h6 class="text-muted font-weight-normal tgl" id="demo"></h6>
-                                        <script>
-                                            const d = new Date();
-                                            let text = d.toLocaleDateString();
-                                            document.getElementById("demo").innerHTML = text;
-                                        </script>
-                                    </div>
-                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                        <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>Empty room</h5>
-                                <div class="row">
-                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0">$45850</h2>
-                                            <p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
-                                        </div>
-                                        <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
-                                    </div>
-                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                        <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>Room Filled</h5>
-                                <div class="row">
-                                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                        <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0">$2039</h2>
-                                            <p class="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
-                                        </div>
-                                        <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
-                                    </div>
-                                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                        <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row ">
-                    <div class="col-12 grid-margin">
+                    <div class="col-lg-12 stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Order Status</h4>
+                                <h4 class="card-title">Table with contextual classes</h4>
+                                </p><div style="display: flex;justify-content: space-between;">
+                                <span>
+                                <form th:action="@{/account}" method="get">
+                                    <div class="input-group  me-2" style="gap: 8px">
+                                        <input type="text" name="keyword" th:value="${keyword}"
+                                               placeholder="Find by Owner Name & Shop Type" class="form-control"/>
+                                        <button type="submit" class="btn btn-info">Search</button>
+                                        <button type="submit" class="btn btn-info">Reset</button>
+                                    </div>
+                                </form>
+                                </span>
+                                <span class="d-grid gap-2;" style=" float: right">
+                                    <button class="btn btn-primary" type="button" style="border-radius: 20px;">
+                                <a style="text-decoration: none;-webkit-text-fill-color: black;display: flex;align-items: center;gap: 3px;font-weight: bold;"
+                                   th:href="@{/register}">
+                                    <span class="material-icons-outlined">add_circle_outline</span>
+                                    <span>ADD</span>
+                                </a>
+                                </button>
+                                </span>
+                            </div>
+                                <p>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-bordered table-contextual">
                                         <thead>
                                         <tr>
-                                            <th>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
-                                                </div>
-                                            </th>
-                                            <th> Client Name</th>
-                                            <th> Order No</th>
-                                            <th> Product Cost</th>
-                                            <th> Project</th>
-                                            <th> Payment Mode</th>
-                                            <th> Start Date</th>
-                                            <th> Payment Status</th>
+                                            <th> #</th>
+                                            <th> name</th>
+                                            <th> Email</th>
+                                            <th> Password</th>
+                                            <th> Role</th>
+                                            <th> Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check form-check-muted m-0">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face1.jpg" alt="image">
-                                                <span class="pl-2">Henry Klein</span>
-                                            </td>
-                                            <td> 02312</td>
-                                            <td> $14,500</td>
-                                            <td> Dashboard</td>
-                                            <td> Credit card</td>
-                                            <td> 04 Dec 2019</td>
-                                            <td>
-                                                <div class="badge badge-outline-success">Approved</div>
+                                        <tr th:each="acount : ${accounts}">
+                                            <td id="loop"></td>
+                                            <td th:text="${acount.name}"></td>
+                                            <td th:text="${acount.email}"></td>
+                                            <td th:text="${acount.password}"></td>
+                                            <td th:text="${acount.admin}"></td>
+                                            <td style="display: flex;flex-direction: row;justify-content: center;">
+                                                <button class="btn btn-primary me-md-2" type="button"><a
+                                                        style="text-decoration: none;-webkit-text-fill-color: black"
+                                                        th:href="@{/updateuser/{id}(id=${acount.id})}"><span
+                                                        class="material-icons-outlined">edit_note</span></a>
+                                                </button>
+                                                <button class="btn btn-danger" type="button"><a
+                                                        style="text-decoration: none;-webkit-text-fill-color: black"
+                                                        th:href="@{/deleteuser/{id}(id=${acount.id})}"><span
+                                                        class="material-icons-outlined">delete_outline</span></a>
+                                                </button>
                                             </td>
                                         </tr>
-
+                                        <script>
+                                            var table = document.getElementById("loop");
+                                            for (let i in table.rows) {
+                                                let row = table.rows[i]
+                                                //iterate through rows
+                                                //rows would be accessed using the "row" variable assigned in the for loop
+                                                for (let j in row.cells) {
+                                                    let col = row.cells[j]
+                                                    //iterate through columns
+                                                    //columns would be accessed using the "col" variable assigned in the for loop
+                                                }
+                                            }
+                                        </script>
                                         </tbody>
                                     </table>
                                 </div>

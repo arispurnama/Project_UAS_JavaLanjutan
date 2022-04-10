@@ -3,29 +3,29 @@ package com.neo.sihotel.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "room")
 public class Room {
     @Id
-    @Column(name = "nomor_room")
-    private String nomorRoom;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(name = "jenis")
+    private String nomor;
+
     private String jenis;
 
-    @Column(name = "status")
     private String status;
+
+    @OneToMany(mappedBy = "room")
+    private List<Reservasi> reservasis;
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "type_id")
-    @OneToOne(optional = false)
-    @JoinColumn(name = "type_id", referencedColumnName = "type_id")
-    private TypeRoom typeID;
+    @ManyToOne
+    private RoomType type;
 
-    @OneToOne(mappedBy = "nomorKamar")
-    private CheckIn checkin;
 }

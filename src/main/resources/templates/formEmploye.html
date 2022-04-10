@@ -62,22 +62,14 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="index.html">
-              <span class="menu-icon">
-                  <span class="material-icons-outlined">how_to_reg</span>
-              </span>
-                    <span class="menu-title"> tamu </span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" th:href="@{/newreservasi}">
               <span class="menu-icon"><span class="material-icons-outlined">shopping_cart_checkout</span>
               </span>
                     <span class="menu-title">Recerpationt</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/tables/basic-table.html">
+                <a class="nav-link" th:href="@{/checkin}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">checklist</span>
               </span>
@@ -85,7 +77,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/reservasi}">
+                <a class="nav-link" th:href="@{/checkout}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">receipt_long</span>
               </span>
@@ -93,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" th:href="@{/room}">
               <span class="menu-icon">
                 <span class="material-icons-outlined">bedroom_parent</span>
               </span>
@@ -109,7 +101,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <a class="nav-link" th:href="@{/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
@@ -142,7 +134,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-primary" type="button">Log Out</button>
+                                <form th:action="@{/appLogout}" method="POST">
+                                    <input type="submit" value="Logout" />
+                                </form>
                             </div>
                         </a>
                     </li>
@@ -166,10 +160,10 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">employee form</h4>
+                            <h4 class="card-title">EMPLOYEE FORM</h4>
                             <form class="forms-sample" id="myInput" th:action="@{/saveEmployee}" th:object="${employee}"
                                   method="POST">
-                                <input type="hidden" th:field="*{employeID}">
+                                <input type="hidden" th:field="*{id}">
                                 <div class="form-group">
                                     <label for="exampleInputName1">Name</label>
                                     <input type="text" th:field="*{name}" class="form-control" id="exampleInputName1"
@@ -189,8 +183,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputCity1">City</label>
-                                    <input type="text" class="form-control" th:field="*{addres}" id="exampleInputCity1"
+                                    <input type="text" class="form-control" th:field="*{address}" id="exampleInputCity1"
                                            placeholder="Location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kexampleInputName1">Jabatan</label>
+                                    <input type="text" th:field="*{jabatan}" class="form-control" id="kexampleInputName1"
+                                           placeholder="jabatan">
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

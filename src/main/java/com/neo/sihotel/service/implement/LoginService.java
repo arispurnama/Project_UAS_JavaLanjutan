@@ -1,4 +1,4 @@
-package com.neo.sihotel.service;
+package com.neo.sihotel.service.implement;
 
 import com.neo.sihotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

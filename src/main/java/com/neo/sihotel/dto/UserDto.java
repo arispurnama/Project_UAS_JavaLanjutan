@@ -9,7 +9,7 @@ import lombok.Setter;
 public class UserDto {
 
     @NotNull
-    private int id;
+    private Integer id;
 
     @NotNull
     private String name;

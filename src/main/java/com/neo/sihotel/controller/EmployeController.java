@@ -1,6 +1,5 @@
 package com.neo.sihotel.controller;
 
-import com.neo.sihotel.dto.SearchDto;
 import com.neo.sihotel.repository.EmployeRepository;
 import com.neo.sihotel.service.EmployeeService;
 import com.neo.sihotel.dto.EmployeDto;
@@ -18,7 +17,6 @@ public class EmployeController {
     private EmployeeService employeeService;
     private EmployeRepository employeRepository;
     List<Employee> list = null;
-    SearchDto searchDto = new SearchDto();
 
     @Autowired
     public EmployeController(EmployeeService employeeService, EmployeRepository employeRepository) {
@@ -39,9 +37,6 @@ public class EmployeController {
             model.addAttribute("employe", list);
         }
         return "employe";
-//        model.addAttribute("employe", employeeService.getAllEmploye());
-//        model.addAttribute("keyword",list);
-//        return "employe";
     }
 
     @GetMapping("/showNewEmployee")
