@@ -2,9 +2,6 @@ package com.neo.sihotel.controller;
 
 import com.neo.sihotel.dto.LoginDto;
 import com.neo.sihotel.dto.UserDto;
-import com.neo.sihotel.model.Employee;
-import com.neo.sihotel.model.User;
-import com.neo.sihotel.repository.ReservasiRepository;
 import com.neo.sihotel.repository.UserRepository;
 import com.neo.sihotel.service.implement.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class Index {
@@ -100,4 +96,9 @@ public class Index {
 //
 //        return "redirect:/account";
 //    }
+    @RequestMapping("/login-error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        return "login";
+    }
 }

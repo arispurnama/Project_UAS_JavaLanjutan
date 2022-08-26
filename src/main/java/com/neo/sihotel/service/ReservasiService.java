@@ -6,8 +6,9 @@ import com.neo.sihotel.model.Reservasi;
 
 import java.util.List;
 
-public interface ReservasiService {
-    MailResponseDto sendMail(ReservasiDto reservasiDto);
+public interface ReservasiService {;
+
+    MailResponseDto sendMail(Reservasi reservasiDto);
 
     List<Reservasi> getAllReservasi();
 

@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -89,20 +89,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -150,7 +141,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Employee Data</h4>
 
-                            <form th:action="@{/employee}" method="get">
+                            <form th:action="@{/admin/employee}" method="get">
                                 <div class="input-group  me-2" style="gap: 8px">
                                     <input type="text" name="keyword" th:value="${keyword}"
                                            placeholder="Find by Owner Name & Shop Type" class="form-control"/>
@@ -161,7 +152,7 @@
                             <br>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn btn-primary" type="button"><a style="text-decoration: none;-webkit-text-fill-color: black"
-                                        th:href="@{/showNewEmployee}"><span class="material-icons-outlined">group_add</span></a></button>
+                                        th:href="@{/admin/showNewEmployee}"><span class="material-icons-outlined">group_add</span></a></button>
                             </div>
                             </p>
                             <div class="table-responsive">
@@ -188,11 +179,11 @@
                                         <td>
                                             <button class="btn btn-primary me-md-2" type="button"><a
                                                     style="text-decoration: none;-webkit-text-fill-color: black"
-                                                    th:href="@{/updateEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">edit_note</span></a>
+                                                    th:href="@{/admin/updateEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">edit_note</span></a>
                                             </button>
                                             <button class="btn btn-danger" type="button"><a
                                                     style="text-decoration: none;-webkit-text-fill-color: black"
-                                                    th:href="@{/deleteEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">delete_outline</span></a>
+                                                    th:href="@{/admin/deleteEmploye/{id}(id=${employee.id})}"><span class="material-icons-outlined">delete_outline</span></a>
                                             </button>
                                         </td>
                                     </tr>

@@ -100,12 +100,13 @@ public class CheckInController {
 
     @PostMapping("/checkoout/{id}")
     public String checkOut(@PathVariable Integer id) {
+        System.out.println("Mengambil data");
         Reservasi reservasi = reservasiRepository.getById(id);
-        reservasiRepository.delete(reservasi);
 
 
+        System.out.println("set kamar kosong");
         reservasiService.getReservasiById(id).getRoom().setStatus("Kosong");
-
+        System.out.println("insert historu");
         History history = new History();
         history.setCode(reservasi.getCode());
         history.setCheckIn(reservasi.isCheckIn());
@@ -113,7 +114,6 @@ public class CheckInController {
         history.setCatatan(reservasi.getCatatan());
         history.setEmail(reservasi.getEmail());
         history.setJenisKelamin(reservasi.getJenisKelamin());
-        history.setJumlahKamar(reservasi.getJumlahKamar());
         history.setLamaInap(reservasi.getLamaInap());
         history.setNoKtp(reservasi.getNoKtp());
         history.setTanggalCheckin(reservasi.getTanggalCheckin());
@@ -124,6 +124,9 @@ public class CheckInController {
         history.setNama(reservasi.getNama());
 
         historyrepository.save(history);
+        System.out.println("save history");
+        reservasiService.deleteReservasi(id);
+        System.out.println("sudah delete reservasi");
         return "redirect:/checkout";
     }
 

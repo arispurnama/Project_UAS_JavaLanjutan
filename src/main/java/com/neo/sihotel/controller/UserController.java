@@ -9,14 +9,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class UserController {
     @Autowired
     UserService userService;
@@ -60,8 +58,9 @@ public class UserController {
     public String deleteUser(@PathVariable(value = "id") int id) {
         userRepository.deleteById(id);
 
-        return "redirect:/account";
+        return "redirect:/admin/account";
     }
+//    ----------
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new UserDto());
@@ -76,20 +75,22 @@ public class UserController {
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setAdmin(userDto.getAdmin());
+        System.out.println("register");
         userRepository.save(user);
 
-
-        return "redirect:/account";
+        return "redirect:/admin/account";
     }
     @PostMapping("/saveregister")
     public String saveRegister(@ModelAttribute("user") User userDto) {
 
         if (userDto.getId()!=null){
+
             User model = userService.getUserById(userDto.getId());
             model.setName(userDto.getName());
             model.setEmail(userDto.getEmail());
             model.setPassword(passwordEncoder.encode(userDto.getPassword()));
             model.setAdmin(userDto.getAdmin());
+            System.out.println("insert");
             userRepository.save(model);
         }else{
             User user = new User();
@@ -97,9 +98,10 @@ public class UserController {
             user.setEmail(userDto.getEmail());
             user.setPassword(passwordEncoder.encode(userDto.getPassword()));
             user.setAdmin(userDto.getAdmin());
+            System.out.println("inser");
             userRepository.save(user);
         }
 
-        return "redirect:/account";
+        return "redirect:/admin/account";
     }
 }

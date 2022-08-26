@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 public class ReservasiDto {
-    private int jumlahKamar, code, lamaInap, tagihan;
+    private int code, lamaInap, tagihan;
     private String nama, jenisKelamin,alamat,email, noKtp, noTlpn, catatan, photoKtp;
     private LocalDate tanggalOrder, tanggalCheckin;
     private Room id;

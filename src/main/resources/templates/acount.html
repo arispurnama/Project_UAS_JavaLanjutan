@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -89,20 +89,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -153,7 +144,7 @@
                                 <h4 class="card-title">Table with contextual classes</h4>
                                 </p><div style="display: flex;justify-content: space-between;">
                                 <span>
-                                <form th:action="@{/account}" method="get">
+                                <form th:action="@{/admin/account}" method="get">
                                     <div class="input-group  me-2" style="gap: 8px">
                                         <input type="text" name="keyword" th:value="${keyword}"
                                                placeholder="Find by Owner Name & Shop Type" class="form-control"/>
@@ -165,7 +156,7 @@
                                 <span class="d-grid gap-2;" style=" float: right">
                                     <button class="btn btn-primary" type="button" style="border-radius: 20px;">
                                 <a style="text-decoration: none;-webkit-text-fill-color: black;display: flex;align-items: center;gap: 3px;font-weight: bold;"
-                                   th:href="@{/register}">
+                                   th:href="@{/admin/register}">
                                     <span class="material-icons-outlined">add_circle_outline</span>
                                     <span>ADD</span>
                                 </a>
@@ -195,12 +186,12 @@
                                             <td style="display: flex;flex-direction: row;justify-content: center;">
                                                 <button class="btn btn-primary me-md-2" type="button"><a
                                                         style="text-decoration: none;-webkit-text-fill-color: black"
-                                                        th:href="@{/updateuser/{id}(id=${acount.id})}"><span
+                                                        th:href="@{/admin/updateuser/{id}(id=${acount.id})}"><span
                                                         class="material-icons-outlined">edit_note</span></a>
                                                 </button>
                                                 <button class="btn btn-danger" type="button"><a
                                                         style="text-decoration: none;-webkit-text-fill-color: black"
-                                                        th:href="@{/deleteuser/{id}(id=${acount.id})}"><span
+                                                        th:href="@{/admin/deleteuser/{id}(id=${acount.id})}"><span
                                                         class="material-icons-outlined">delete_outline</span></a>
                                                 </button>
                                             </td>

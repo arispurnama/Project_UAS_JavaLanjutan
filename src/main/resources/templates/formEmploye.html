@@ -93,7 +93,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -101,20 +101,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -161,7 +152,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">EMPLOYEE FORM</h4>
-                            <form class="forms-sample" id="myInput" th:action="@{/saveEmployee}" th:object="${employee}"
+                            <form class="forms-sample" id="myInput" th:action="@{/admin/saveEmployee}" th:object="${employee}"
                                   method="POST">
                                 <input type="hidden" th:field="*{id}">
                                 <div class="form-group">
@@ -193,7 +184,7 @@
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                    <button class="btn btn-danger mr-2" onclick="document.getElementById('myInput').value = ''" type="submit">Cancel</button>
+                                    <a class="btn btn-danger mr-2" th:href="@{/admin/employee}" >Cancel</a>
                                 </div>
                             </form>
                         </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class EmployeController {
 
     private EmployeeService employeeService;
@@ -52,7 +53,7 @@ public class EmployeController {
         //save employe to database
         employeeService.saveEmploye(employee);
 
-        return "redirect:/employee";
+        return "redirect:/admin/employee";
     }
 
     @RequestMapping("/saveUpdateEmploye")
@@ -60,7 +61,7 @@ public class EmployeController {
         //save employe to database
         employeeService.updateEmploye(employee);
 
-        return "redirect:/employee";
+        return "redirect:/admin/employee";
     }
 
     @GetMapping("/updateEmploye/{id}")
@@ -78,7 +79,7 @@ public class EmployeController {
     public String deleteEmploye(@PathVariable(value = "id") int id) {
         employeeService.deleteEmploye(id);
 
-        return "redirect:/employee";
+        return "redirect:/admin/employee";
     }
 
 }

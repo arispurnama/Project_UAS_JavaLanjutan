@@ -47,7 +47,7 @@
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="index.html"><img src="img/motel.png" alt="logo"></a>
+            <a class="sidebar-brand brand-logo" href="index.html"><img src="/images/motel.png" alt="logo"></a>
             <!--            <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo"></a>-->
         </div>
         <ul class="nav">
@@ -97,7 +97,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -105,20 +105,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -164,7 +155,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Code Reservasi</label>
+                                            <label class="col-sm-3 col-form-label"> Code Reservasi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="code reservasi"
                                                        th:field="*{code}">
@@ -180,7 +171,6 @@
                                             </div>
                                             <script>
                                                 document.reservasi.tanggalOrder.value = new Date().toISOString().substr(0, 10);
-                                                ;
                                             </script>
                                         </div>
                                     </div>
@@ -226,15 +216,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Jumlah Kamar</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="lama inap"
-                                                       th:field="*{jumlahKamar}">
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -255,7 +236,7 @@
                                                     <option value="">Nothing selected</option>
                                                     <option th:each="room : ${rooms}"
                                                             th:value="${room.id}"
-                                                            th:text="${room.type.jenis}">
+                                                            th:text="${room.type.jenis} +'-'+${room.nomor}">
                                                     </option>
                                                 </select>
                                             </div>
@@ -317,7 +298,7 @@
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn btn-primary me-md-2" type="submit">save</button>
-                                    <button class="btn btn-danger" type="button" th:href="@{/dashboard}">cancel</button>
+                                    <a class="btn btn-danger" type="button" th:href="@{/dashboard}">cancel</a>
                                 </div>
                             </form>
                         </div>

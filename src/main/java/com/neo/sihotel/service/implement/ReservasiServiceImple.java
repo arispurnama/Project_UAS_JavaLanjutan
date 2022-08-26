@@ -26,18 +26,38 @@ public class ReservasiServiceImple implements ReservasiService {
     }
 
     @Override
-    public MailResponseDto sendMail(ReservasiDto reservasiDto) {
+    public MailResponseDto sendMail(Reservasi reservasiDto) {
         MailResponseDto responseDto = new MailResponseDto();
         MimeMessage mimeMessage = sender.createMimeMessage();
 
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
-            helper.setTo("arispurnama0516@gmail.com");
-            helper.setSubject("Reservasi");
-            helper.setFrom(reservasiDto.getEmail());
+            helper.setTo(reservasiDto.getEmail());
+            helper.setSubject("Reservasi Hotel");
+            helper.setFrom("arispurnama1605@gmail.com");
+            helper.setText(" <div>\n" +
+                    "    <p>SELAMAT DATANG DI HOTEL KAMI</p>\n" +
+                    "    <p>Kami Ucapkan Terima Kasih Mau Berkunjung</p>\n" +
+                    "    <table  border=\"1\">\n" +
+                    "        <tr>\n" +
+                    "            <td>Nama</td>\n" +
+                    "            <td>Nomor KTP</td>\n" +
+                    "            <td>Nomor Telepon</td>\n" +
+                    "            <td>Alamat</td>\n" +
+                    "            <td>Lama Inap</td>\n" +
+                    "        </tr>\n" +
+                    "        <tr>\n" +
+                    "            <td>"+ reservasiDto.getNama()+"</td>\n" +
+                    "            <td> "+reservasiDto.getNoKtp()+"</td>\n" +
+                    "            <td>"+reservasiDto.getNoTlpn()+"</td>\n" +
+                    "            <td>"+reservasiDto.getAlamat()+"</td>\n" +
+                    "            <td>"+reservasiDto.getLamaInap()+"</td>\n" +
+                    "        </tr>\n" +
+                    "    </table>\n" +
+                    "</div>    \n",true);
 
             sender.send(mimeMessage);
-            responseDto.setPesan("Email Berhasil Terkirim Ke - arispurnama0516");
+            responseDto.setPesan("Email Berhasil Terkirim Ke - " + reservasiDto.getEmail());
             responseDto.setStatus(Boolean.TRUE);
         } catch (Exception e) {
             System.out.println(e);
@@ -45,6 +65,7 @@ public class ReservasiServiceImple implements ReservasiService {
             responseDto.setPesan("Email Gagal Terkirim");
             responseDto.setStatus(Boolean.FALSE);
         }
+
         return responseDto;
     }
 
@@ -55,7 +76,7 @@ public class ReservasiServiceImple implements ReservasiService {
 
     @Override
     public void saveReservasi(Reservasi reservasi) {
-        reservasi.setTagihan(reservasi.getJumlahKamar() * reservasi.getLamaInap() * reservasi.getRoom().getType().getHarga());
+        reservasi.setTagihan(reservasi.getLamaInap() * reservasi.getRoom().getType().getHarga());
         this.reservasiRepository.save(reservasi);
     }
 
@@ -82,7 +103,6 @@ public class ReservasiServiceImple implements ReservasiService {
             reservasi.setNoKtp(reservasiDto.getNoKtp());
             reservasi.setNoTlpn(reservasiDto.getNoTlpn());
             reservasi.setCatatan(reservasiDto.getCatatan());
-            reservasi.setJumlahKamar(reservasiDto.getJumlahKamar());
             reservasi.setEmail(reservasiDto.getEmail());
 //            reservasi.setPhotoKtp(reservasiDto.getPhotoKtp());
             reservasi.setTanggalOrder(reservasiDto.getTanggalOrder());
@@ -112,7 +132,6 @@ public class ReservasiServiceImple implements ReservasiService {
             reservasi.setNoKtp(reservasiDto.getNoKtp());
             reservasi.setNoTlpn(reservasiDto.getNoTlpn());
             reservasi.setCatatan(reservasiDto.getCatatan());
-            reservasi.setJumlahKamar(reservasiDto.getJumlahKamar());
             reservasi.setEmail(reservasiDto.getEmail());
 //            reservasi.setPhotoKtp(reservasiDto.getPhotoKtp());
             reservasi.setTanggalOrder(reservasiDto.getTanggalOrder());

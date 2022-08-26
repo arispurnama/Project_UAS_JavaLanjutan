@@ -48,7 +48,6 @@ public class RoomServiceImple implements RoomService {
         Room result = new Room();
         try{
             room.setNomor(roomDto.getNomorRoom());
-            room.setJenis(roomDto.getJenis());
             room.setType(roomDto.getTypeID());
             room.setStatus(roomDto.getStatus());
 

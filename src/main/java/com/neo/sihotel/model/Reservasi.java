@@ -32,8 +32,6 @@ public class Reservasi {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate tanggalCheckin;
 
-    private int jumlahKamar;
-
     private int lamaInap;
 
     private String catatan;

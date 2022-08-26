@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -93,20 +93,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -172,7 +163,6 @@
                                             <th> Jenis Kelamin</th>
                                             <th> tanggal Order</th>
                                             <th> Tanggal Checkin</th>
-                                            <th> Jumlah Kamar</th>
                                             <th> Alamat</th>
                                             <th> Nomor Telepon</th>
                                             <th> Actions</th>
@@ -185,7 +175,6 @@
                                             <td th:text="${reservasi.jenisKelamin}"></td>
                                             <td th:text="${reservasi.tanggalOrder}"></td>
                                             <td th:text="${reservasi.tanggalCheckin}"></td>
-                                            <td th:text="${reservasi.jumlahKamar}"></td>
                                             <td th:text="${reservasi.alamat}"></td>
                                             <td th:text="${reservasi.noTlpn}"></td>
                                             <td style="display: flex;flex-direction: row;justify-content: center;">

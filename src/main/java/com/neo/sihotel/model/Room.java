@@ -16,8 +16,6 @@ public class Room {
 
     private String nomor;
 
-    private String jenis;
-
     private String status;
 
     @OneToMany(mappedBy = "room")

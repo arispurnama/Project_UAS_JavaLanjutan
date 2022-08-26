@@ -8,20 +8,14 @@ import lombok.Setter;
 @Setter
 public class UserDto {
 
-    @NotNull
     private Integer id;
 
-    @NotNull
     private String name;
 
-    @NotNull
     private String password;
-    private String confirmPass;
 
-    @NotNull
     private String email;
 
-    @NotNull
     private Boolean admin;
 
 }

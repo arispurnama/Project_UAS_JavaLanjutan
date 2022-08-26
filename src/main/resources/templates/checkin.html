@@ -99,19 +99,6 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="name"
                                                        th:field="*{jenisKelamin}">
-                                                <!--                                                <select class="form-control" th:field="*{jenisKelamin}">-->
-                                                <!--                                                    <option th:value="'Male'" th:text="Male">Male</option>-->
-                                                <!--                                                    <option th:value="'Female'" th:text="Female">Female</option>-->
-                                                <!--                                                </select>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Jumlah Kamar</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="lama inap"
-                                                       th:field="*{jumlahKamar}">
                                             </div>
                                         </div>
                                     </div>
@@ -132,26 +119,10 @@
                                             <label class="col-sm-3 col-form-label"> Room </label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
-                                                       placeholder="No Kartu tanda penduduk" th:field="*{room}">
-                                                <!--                                                <select class="form-control" th:field="*{room}" id="pizza">-->
-                                                <!--                                                    <option value="">Nothing selected</option>-->
-                                                <!--                                                    <option th:each="room : ${rooms}"-->
-                                                <!--                                                            th:value="${room.id}"-->
-                                                <!--                                                            th:text="${room.jenis}">-->
-                                                <!--                                                    </option>-->
-                                                <!--                                                </select>-->
+                                                       placeholder="No Kartu tanda penduduk" th:field="*{room.nomor}">
                                             </div>
                                         </div>
                                     </div>
-                                    <!--                                    <div class="col-md-6">-->
-                                    <!--                                        <div class="form-group row">-->
-                                    <!--                                            <label class="col-sm-3 col-form-label">Photo KTP</label>-->
-                                    <!--                                            <div class="col-sm-9">-->
-                                    <!--                                                <input type="file" accept="image/png, image/jpeg" class="form-control"-->
-                                    <!--                                                       name="filePhotoKtp">-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">

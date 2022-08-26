@@ -15,7 +15,8 @@ public interface ReservasiRepository extends JpaRepository<Reservasi, Integer> {
     List<Reservasi> getAllByCheckInFalse();
     List<Reservasi> getAllByCheckInTrue();
 
-    Long countByCheckInTrue();
+    Long countAllByCheckInFalse();
+    Long countAllByCheckInTrue();
 
     @Query(value = "select * from reservasi where code like %:keyword% or jenis_kelamin like %:keyword% or email like %:keyword% or nama like %:keyword% or no_ktp like %:keyword% or tanggal_order like %:keyword% ", nativeQuery = true)
     List<Reservasi> findByKeyword(@Param("keyword") String keyword);

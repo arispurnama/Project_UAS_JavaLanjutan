@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
     <meta charset="utf-8">
@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/employee}">
+                <a class="nav-link" th:href="@{/admin/employee}">
               <span class="menu-icon">
                <span class="material-icons-outlined">badge</span>
               </span>
@@ -89,20 +89,11 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" th:href="@{/account}">
+                <a class="nav-link" th:href="@{/admin/account}">
               <span class="menu-icon">
                <span class="material-icons-outlined">supervised_user_circle</span>
               </span>
                     <span class="menu-title">Acount</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link"
-                   href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <span class="material-icons-outlined">picture_as_pdf</span>
-              </span>
-                    <span class="menu-title">Documentation</span>
                 </a>
             </li>
         </ul>
@@ -149,12 +140,13 @@
                     <div class="col-sm-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h5>number of visitors</h5>
+                                <h3>NUMBER OF VISITOR</h3>
+                                <h5>who checked out</h5>
                                 <hr>
                                 <div class="row name">
                                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0" th:text="${visitors}"></h2>
+                                            <h2 class="mb-0" th:value="${visitorsCheckout}"></h2>
                                         </div>
                                         <hr>
                                         <h6 class="text-muted font-weight-normal tgl" id="demo"></h6>
@@ -174,14 +166,21 @@
                     <div class="col-sm-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h5>Empty room</h5>
+                                <h3>NUMBER OF VISITOR</h3>
+                                <h5>who checked in</h5>
+                                <hr>
                                 <div class="row">
                                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0">$45850</h2>
-                                            <p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
+                                            <h2 class="mb-0" th:value="${visitorscheckin}"></h2>
                                         </div>
-                                        <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
+                                        <hr>
+                                        <h6 class="text-muted font-weight-normal tgl" id="tanggal"></h6>
+                                        <script>
+                                            const date = new Date();
+                                            let tgl = date.toLocaleDateString();
+                                            document.getElementById("tanggal").innerHTML = tgl;
+                                        </script>
                                     </div>
                                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                                         <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
@@ -193,17 +192,24 @@
                     <div class="col-sm-4 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h5>Room Filled</h5>
-                                <div class="row">
+                                <h3>NUMBER OF VISITOR</h3>
+                                <h5>Haven't Checked In</h5>
+                                <hr>
+                                <div class="row name">
                                     <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                            <h2 class="mb-0">$2039</h2>
-                                            <p class="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
+                                            <h2 class="mb-0" th:value="${jml}"></h2>
                                         </div>
-                                        <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
+                                        <hr>
+                                        <h6 class="text-muted font-weight-normal tgl" id="tg"></h6>
+                                        <script>
+                                            const t = new Date();
+                                            let tl = t.toLocaleDateString();
+                                            document.getElementById("demo").innerHTML = tl;
+                                        </script>
                                     </div>
                                     <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                        <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
+                                        <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
                                     </div>
                                 </div>
                             </div>
@@ -214,9 +220,11 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Order Status</h4>
+                                <h2 class="card-title">VISITOR DATA</h2>
+                                    <h4>Haven't Checked In</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+
+                                    <table class="table table-bordered" style="text-align: center;">
                                         <thead>
                                         <tr>
                                             <th>
@@ -226,38 +234,32 @@
                                                     </label>
                                                 </div>
                                             </th>
-                                            <th> Client Name</th>
-                                            <th> Order No</th>
-                                            <th> Product Cost</th>
-                                            <th> Project</th>
-                                            <th> Payment Mode</th>
-                                            <th> Start Date</th>
-                                            <th> Payment Status</th>
+                                            <th> Code Reservasi</th>
+                                            <th> Nama</th>
+                                            <th> Jenis Kelamin</th>
+                                            <th> tanggal Order</th>
+                                            <th> Tanggal Checkin</th>
+                                            <th> Alamat</th>
+                                            <th> Nomor Telepon</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
+                                        <tr th:each="reservasi : ${list}">
+                                            <th>
                                                 <div class="form-check form-check-muted m-0">
                                                     <label class="form-check-label">
                                                         <input type="checkbox" class="form-check-input">
                                                     </label>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <img src="assets/images/faces/face1.jpg" alt="image">
-                                                <span class="pl-2">Henry Klein</span>
-                                            </td>
-                                            <td> 02312</td>
-                                            <td> $14,500</td>
-                                            <td> Dashboard</td>
-                                            <td> Credit card</td>
-                                            <td> 04 Dec 2019</td>
-                                            <td>
-                                                <div class="badge badge-outline-success">Approved</div>
-                                            </td>
+                                            </th>
+                                            <td th:text="${reservasi.code}"></td>
+                                            <td th:text="${reservasi.nama}"></td>
+                                            <td th:text="${reservasi.jenisKelamin}"></td>
+                                            <td th:text="${reservasi.tanggalOrder}"></td>
+                                            <td th:text="${reservasi.tanggalCheckin}"></td>
+                                            <td th:text="${reservasi.alamat}"></td>
+                                            <td th:text="${reservasi.noTlpn}"></td>
                                         </tr>
-
                                         </tbody>
                                     </table>
                                 </div>

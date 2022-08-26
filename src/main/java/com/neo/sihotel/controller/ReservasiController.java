@@ -1,7 +1,6 @@
 package com.neo.sihotel.controller;
 
 import com.neo.sihotel.dto.ReservasiDto;
-import com.neo.sihotel.model.Employee;
 import com.neo.sihotel.model.Reservasi;
 import com.neo.sihotel.model.Room;
 import com.neo.sihotel.repository.ReservasiRepository;
@@ -10,17 +9,11 @@ import com.neo.sihotel.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.List;
 
 @Controller
@@ -60,7 +53,7 @@ public class ReservasiController {
 //
 //        //save employe to database
 //        reservasi.setPhotoKtp(photoName);
-//        reservasiService.sendMail(reservasiDto);
+        reservasiService.sendMail(reservasi);
         reservasiService.saveReservasi(reservasi);
 
         return "redirect:/dashboard";
